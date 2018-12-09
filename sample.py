@@ -6,11 +6,13 @@ input_data = [0x0000, 0x0004, 0x000c, 0x2200, 0x00d0, 0x00e0, 0x1130, 0x0028,
               0x00b0, 0x1100, 0x0028, 0x0064, 0x0070, 0x00d0, 0x0008, 0x3394]
 
 L = 16
-cache = Cache(L, 1, 8)
+K = 8
+N = 1
+c = Cache(L, K, N)
 
 for addr in input_data:
-    cache.access_cache(addr)
+    c.access_cache(addr)
 
-print("K={}; N={}".format(cache.K, cache.N))
-print("HITS: {}".format(cache.hits))
-print("MISSES: {}\n".format(cache.misses))
+print("K={}; N={}".format(c.K, c.N))
+print("HITS: {}".format(c.hits))
+print("MISSES: {}\n".format(c.misses))
